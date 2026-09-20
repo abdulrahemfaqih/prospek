@@ -170,3 +170,24 @@ export async function fetchSummaryStats(supabase: SupabaseClient) {
     totalBusinesses: bizData?.length || 0,
   };
 }
+
+/**
+ * Fetch recent scrape jobs for log audit.
+ */
+export async function fetchScrapeJobs(
+  supabase: SupabaseClient,
+  limit: number = 100
+): Promise<import('./types').ScrapeJob[]> {
+  const { data, error } = await supabase
+    .from('scrape_jobs')
+    .select('*')
+    .order('ran_at', { ascending: false })
+    .limit(limit);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data || []) as import('./types').ScrapeJob[];
+}
+

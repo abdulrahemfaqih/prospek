@@ -18,6 +18,7 @@ export function Navbar() {
   const navLinks = [
     { href: '/', label: 'Daftar' },
     { href: '/ringkasan', label: 'Ringkasan' },
+    { href: '/riwayat', label: 'Riwayat' },
   ];
 
   return (

@@ -141,7 +141,25 @@ Prospek memadukan:
      ```
    - **Keamanan Data CRM yang Diedit:** Scraping ulang **TIDAK AKAN PERNAH menimpa atau menghapus catatan dan status prospek Anda**. Data publik Google Maps di tabel `businesses` akan diperbarui ke yang terbaru, namun status (*Baru*, *Dihubungi*, *Dibalas*, *Deal*, *Ditolak*) dan seluruh catatan negosiasi di tabel `leads` tetap 100% aman (`ON CONFLICT DO NOTHING`).
 
+6. **Audit & Log Riwayat Scraping (Koordinasi Tim):**
+   Untuk mencegah duplikasi pencarian antar-anggota tim yang menggunakan database Supabase bersama:
+   - **Melalui Dashboard Website:**
+     Buka menu **`Riwayat`** di Navbar atas (`/riwayat`). Anda dan tim dapat melihat daftar riwayat pencarian lengkap dengan informasi:
+     - Waktu eksekusi pencarian
+     - Kota & Provinsi
+     - Kata kunci yang dicari
+     - Halaman yang sudah diambil (contoh: *Halaman 1 s/d 2 (Data #1–#40)*)
+     - Jumlah tempat ditemukan dan tempat baru yang masuk
+     - Status aktif deduplikasi (< 30 hari)
+   - **Melalui Terminal CLI:**
+     Jalankan perintah:
+     ```bash
+     python scrape.py --history
+     ```
+     Perintah ini akan menampilkan tabel riwayat audit terkini langsung di terminal Anda.
+
 ---
+
 
 ### 5. Deploy ke Vercel & Pengaturan Cron Keepalive
 

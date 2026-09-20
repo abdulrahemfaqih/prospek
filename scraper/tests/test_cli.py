@@ -74,3 +74,30 @@ class TestCli:
         }
         # Should complete without error
         execute_scraping(args)
+
+    def test_arg_parser_history_flag(self):
+        parser = build_arg_parser()
+        args = parser.parse_args(["--history"])
+        assert args.history is True
+
+    def test_display_history_with_mock(self, monkeypatch):
+        from unittest.mock import MagicMock
+        from prospek.cli import display_history
+
+        mock_db = MagicMock()
+        mock_db.return_value.get_scrape_history.return_value = [
+            {
+                "ran_at": "2026-09-20T12:00:00Z",
+                "city": "Bangkalan",
+                "province": "Jawa Timur",
+                "keyword": "rental mobil Bangkalan",
+                "pages_fetched": 2,
+                "places_found": 35,
+                "places_new": 28,
+            }
+        ]
+        monkeypatch.setattr("prospek.cli.DatabaseManager", mock_db)
+
+        # Should execute cleanly and format table
+        display_history(limit=5)
+

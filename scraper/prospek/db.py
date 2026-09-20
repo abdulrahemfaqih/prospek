@@ -190,3 +190,18 @@ class DatabaseManager:
                 pass
 
         return total_saved, total_new_leads
+
+    def get_scrape_history(self, limit: int = 25) -> List[Dict[str, Any]]:
+        """Fetch recent scrape jobs from Supabase for audit & coordination."""
+        try:
+            res = (
+                self.client.table("scrape_jobs")
+                .select("*")
+                .order("ran_at", desc=True)
+                .limit(limit)
+                .execute()
+            )
+            return res.data or []
+        except Exception as e:
+            logger.error("Failed to fetch scrape history: %s", e)
+            return []

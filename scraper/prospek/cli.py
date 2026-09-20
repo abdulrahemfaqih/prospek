@@ -88,6 +88,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Izinkan melanjutkan pencarian melebihi anggaran 240 sampai batas keras 250",
     )
+    parser.add_argument(
+        "--history",
+        action="store_true",
+        help="Tampilkan riwayat log pencarian yang sudah tersimpan di database",
+    )
     return parser
 
 
@@ -509,10 +514,66 @@ def execute_scraping(args_dict: Dict[str, Any]) -> None:
         console.print("\n[bold green][OK] Selesai:[/] Seluruh kombinasi terpilih berhasil diproses.")
 
 
+def display_history(limit: int = 25) -> None:
+    """Display recent scrape jobs from Supabase in a rich table."""
+    try:
+        db = DatabaseManager()
+    except Exception as e:
+        console.print(f"[bold red]Galat koneksi database:[/] {e}")
+        return
+
+    jobs = db.get_scrape_history(limit=limit)
+    if not jobs:
+        console.print("[yellow]Belum ada riwayat log scraping yang tersimpan.[/]")
+        return
+
+    table = Table(
+        title=f"Riwayat Log Scraping Terakhir (Maksimal {limit})",
+        header_style="bold cyan",
+        border_style="dim",
+    )
+    table.add_column("Waktu Eksekusi", style="dim", justify="left")
+    table.add_column("Kota & Provinsi", justify="left")
+    table.add_column("Kata Kunci", style="bold", justify="left")
+    table.add_column("Halaman Diambil", justify="center")
+    table.add_column("Cakupan Data", style="dim", justify="left")
+    table.add_column("Ditemukan", justify="right")
+    table.add_column("Tempat Baru", justify="right", style="green")
+
+    for j in jobs:
+        ran_at_raw = j.get("ran_at") or ""
+        try:
+            dt = datetime.fromisoformat(ran_at_raw.replace("Z", "+00:00"))
+            dt_str = dt.strftime("%d %b %Y, %H:%M")
+        except Exception:
+            dt_str = ran_at_raw[:16]
+
+        city_prov = f"{j.get('city')}, {j.get('province')}"
+        kw = j.get("keyword") or ""
+        pages = j.get("pages_fetched") or 1
+        page_label = f"Hal 1 s/d {pages}"
+        data_scope = f"Data #{1}–#{pages * 20}"
+        found = str(j.get("places_found") or 0)
+        new = str(j.get("places_new") or 0)
+
+        table.add_row(dt_str, city_prov, kw, page_label, data_scope, found, new)
+
+    console.print("\n")
+    console.print(table)
+    console.print(
+        "[dim]Tips: Jika kata kunci sudah diambil pada Hal 1-2, gunakan --pages 4 --refresh untuk mengambil data lanjutan.[/]\n"
+    )
+
+
 def main() -> None:
     """CLI entry point."""
     parser = build_arg_parser()
     args = parser.parse_args()
+
+    # Handle --history flag
+    if args.history:
+        display_history()
+        return
 
     # If any filtering arguments provided, run in argument mode
     if any([args.provinces, args.cities, args.groups, args.dry_run, args.refresh]):
@@ -538,3 +599,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
