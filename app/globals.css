@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-sans: var(--font-ibm-plex-sans), "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: #F4F5F7;
+  --color-surface: #FFFFFF;
+  --color-line: #DDE1E7;
+  --color-line-strong: #C4CAD3;
+  --color-ink: #1F2733;
+  --color-ink-muted: #5B6675;
+  --color-ink-faint: #8A94A3;
+  --color-accent: #1D5B79;
+  --color-accent-hover: #164A63;
+  --color-accent-soft: #E4EEF3;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-control: 6px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
+
+/* Tabular figures for aligned ratings and scores */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Drawer custom elevation (only shadow allowed per design.md) */
+.shadow-drawer {
+  box-shadow: -8px 0 24px rgba(31, 39, 51, 0.08);
+}
+
+/* Hide scrollbar for horizontal chip scroll on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

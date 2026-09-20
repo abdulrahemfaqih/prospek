@@ -1,0 +1,107 @@
+{
+  "search_metadata": {
+    "id": "66ed850024ffcb2384a12345",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/66ed850024ffcb2384a12345.json",
+    "created_at": "2026-09-20 14:00:00 UTC",
+    "processed_at": "2026-09-20 14:00:00 UTC",
+    "google_maps_url": "https://www.google.com/maps/search/kafe+di+Malang",
+    "raw_html_file": "https://serpapi.com/searches/66ed850024ffcb2384a12345.html",
+    "total_time_taken": 1.2
+  },
+  "search_parameters": {
+    "engine": "google_maps",
+    "type": "search",
+    "q": "kafe di Malang",
+    "hl": "id",
+    "gl": "id"
+  },
+  "local_results": [
+    {
+      "position": 1,
+      "title": "Kopi Senja Dinoyo",
+      "place_id": "ChIJbXG_5kF11y0R8SenjaMalang",
+      "data_id": "0x2e78821f75d311b5:0x1234567890abcdef",
+      "data_cid": "1311768467463799279",
+      "rating": 4.6,
+      "reviews": 128,
+      "type": "Kafe",
+      "types": ["Kafe", "Kedai kopi"],
+      "address": "Jl. MT Haryono No. 120, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144",
+      "phone": "0812-3456-7890",
+      "hours": "Buka ⋅ Tutup pukul 23.00",
+      "gps_coordinates": {
+        "latitude": -7.952134,
+        "longitude": 112.614567
+      },
+      "link": "https://www.google.com/maps/place/?q=place_id:ChIJbXG_5kF11y0R8SenjaMalang"
+    },
+    {
+      "position": 2,
+      "title": "Rental Motor Jaya Malang",
+      "place_id": "ChIJc1234kF11y0RJayaRentalMlg",
+      "data_id": "0x2e78821f75d311b6:0xabcdef1234567890",
+      "rating": 4.5,
+      "reviews": 65,
+      "type": "Rental motor",
+      "types": ["Sewa motor", "Jasa transportasi"],
+      "address": "Jl. Trunojoyo No. 45, Klojen, Kota Malang, Jawa Timur 65111",
+      "phone": "+62 856-7891-2345",
+      "website": "https://www.instagram.com/rentalmotor_jaya_malang/",
+      "gps_coordinates": {
+        "latitude": -7.978901,
+        "longitude": 112.634567
+      }
+    },
+    {
+      "position": 3,
+      "title": "Kopi Kenangan - Mall Olympic Garden",
+      "place_id": "ChIJchain001Malang",
+      "data_id": "0x2e78821f75d311b7:0x1111222233334444",
+      "rating": 4.4,
+      "reviews": 320,
+      "type": "Kedai kopi",
+      "address": "Mall Olympic Garden Lt. 2, Jl. Kawi No. 24, Kauman, Kec. Klojen, Kota Malang, Jawa Timur 65116",
+      "phone": "0811-9876-5432",
+      "website": "https://kopikenangan.com"
+    },
+    {
+      "position": 4,
+      "title": "Kedai Kopi Antik Malang (Permanently Closed)",
+      "place_id": "ChIJclosed002Malang",
+      "data_id": "0x2e78821f75d311b8:0x5555666677778888",
+      "rating": 3.8,
+      "reviews": 40,
+      "operating_status": "permanently_closed",
+      "type": "Kafe",
+      "address": "Jl. Ijen No. 90, Gading Kasri, Kota Malang, Jawa Timur",
+      "phone": "0813-1111-2222"
+    },
+    {
+      "position": 5,
+      "title": "Kafe Batavia Jakarta",
+      "place_id": "ChIJmismatched003Jakarta",
+      "rating": 4.5,
+      "reviews": 500,
+      "type": "Kafe",
+      "address": "Jl. Pintu Besar Utara No. 14, Kota Tua, Jakarta Barat, DKI Jakarta 11110",
+      "phone": "0812-9999-8888"
+    },
+    {
+      "position": 6,
+      "title": "Otentik Resto & Cafe",
+      "place_id": "ChIJotentik004Malang",
+      "data_id": "0x2e78821f75d311b9:0x9999aaaabbbbcccc",
+      "rating": 4.8,
+      "reviews": 210,
+      "type": "Restoran",
+      "address": "Jl. Soekarno Hatta No. 88, Jatimulyo, Lowokwaru, Kota Malang, Jawa Timur",
+      "phone": "(0341) 456-789",
+      "website": "https://otentikresto.co.id",
+      "gps_coordinates": {
+        "latitude": -7.945678,
+        "longitude": 112.619012
+      }
+    }
+  ]
+}

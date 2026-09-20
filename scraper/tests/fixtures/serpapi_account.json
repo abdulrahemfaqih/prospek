@@ -1,0 +1,16 @@
+{
+  "account_id": "usr_test123456789",
+  "api_key": "secret_test_api_key",
+  "account_email": "faqih@example.com",
+  "account_status": "Active",
+  "plan_id": "free",
+  "plan_name": "Free Plan",
+  "searches_per_month": 250,
+  "this_month_usage": 45,
+  "total_searches_left": 205,
+  "plan_searches_left": 205,
+  "extra_credits": 0,
+  "this_hour_searches": 12,
+  "last_hour_searches": 5,
+  "account_rate_limit_per_hour": 50
+}

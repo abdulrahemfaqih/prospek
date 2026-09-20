@@ -1,0 +1,182 @@
+serpapi:
+  free_monthly_searches: 250
+  monthly_budget: 240
+  hourly_limit: 50
+  hourly_soft_limit: 45
+  default_pages: 2
+
+provinces:
+  jatim:
+    name: "Jawa Timur"
+    cities:
+      - Surabaya
+      - Malang
+      - Batu
+      - Sidoarjo
+      - Gresik
+      - Mojokerto
+      - Pasuruan
+      - Probolinggo
+      - Kediri
+      - Blitar
+      - Madiun
+      - Jember
+      - Banyuwangi
+      - Pamekasan
+      - Sumenep
+      - Sampang
+      - Bangkalan
+  jabar:
+    name: "Jawa Barat"
+    cities:
+      - Bandung
+      - Cimahi
+      - Bekasi
+      - Depok
+      - Bogor
+      - Sukabumi
+      - Cirebon
+      - Tasikmalaya
+      - Garut
+      - Karawang
+      - Purwakarta
+  jateng:
+    name: "Jawa Tengah"
+    cities:
+      - Semarang
+      - Surakarta
+      - Salatiga
+      - Magelang
+      - Pekalongan
+      - Tegal
+      - Purwokerto
+      - Kudus
+      - Jepara
+      - Klaten
+      - Cilacap
+  jakarta:
+    name: "DKI Jakarta"
+    cities:
+      - Jakarta Pusat
+      - Jakarta Utara
+      - Jakarta Barat
+      - Jakarta Selatan
+      - Jakarta Timur
+  banten:
+    name: "Banten"
+    cities:
+      - Tangerang
+      - Tangerang Selatan
+      - Serang
+      - Cilegon
+
+category_groups:
+  makanan:
+    - kafe
+    - kedai kopi
+    - restoran
+    - warung makan
+    - rumah makan
+    - catering
+    - toko kue
+    - bakery
+    - depot
+  persewaan:
+    - rental mobil
+    - rental motor
+    - sewa alat camping
+    - sewa alat outdoor
+    - sewa kamera
+    - sewa tenda
+    - sewa sound system
+    - sewa gedung
+    - sewa dekorasi
+  akomodasi:
+    - homestay
+    - penginapan
+    - villa
+    - kos
+    - guest house
+    - glamping
+  jasa:
+    - wedding organizer
+    - fotografer
+    - studio foto
+    - salon
+    - barbershop
+    - klinik gigi
+    - laundry
+    - bengkel
+    - bimbel
+    - kursus
+    - travel agent
+    - percetakan
+    - gym
+
+blocklist_chains:
+  - indomaret
+  - alfamart
+  - alfamidi
+  - kfc
+  - mcdonald's
+  - mcdonalds
+  - starbucks
+  - pizza hut
+  - domino's pizza
+  - dominos pizza
+  - hokben
+  - j.co
+  - jco
+  - chatime
+  - richeese factory
+  - burger king
+  - kopi kenangan
+  - janji jiwa
+  - mixue
+  - point coffee
+  - d'cost
+  - solaria
+  - breadtalk
+  - roti'o
+  - rotio
+  - dunkin' donuts
+  - dunkin donuts
+  - a&w
+  - wendys
+  - subways
+  - subway
+
+social_domains:
+  - facebook.com
+  - fb.me
+  - instagram.com
+  - instagr.am
+  - linktr.ee
+  - linktree.com
+  - wa.me
+  - api.whatsapp.com
+  - tiktok.com
+  - shopee.co.id
+  - tokopedia.com
+  - bukalapak.com
+  - lazada.co.id
+  - blibli.com
+  - grab.com
+  - gojek.com
+  - youtube.com
+  - twitter.com
+  - x.com
+
+scoring:
+  no_website: 40
+  social_website: 30
+  rating_gte_4: 15
+  rating_35_39: 7
+  reviews_gte_50: 15
+  reviews_20_49: 8
+  has_wa: 15
+  priority_category: 10
+  priority_groups:
+    - persewaan
+    - akomodasi
+  max_score: 100
