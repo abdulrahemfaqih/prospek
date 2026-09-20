@@ -129,6 +129,18 @@ Prospek memadukan:
      python scrape.py --province jatim --city Malang --city Batu --group persewaan --max-requests 30
      ```
 
+5. **Cara Kerja Paginasi, Kuota & Mengambil Data Tambahan:**
+   - **Paginasi Bawaan (*Default*):** Secara default, scraper mengambil **2 halaman** teratas per kata kunci (`--pages 2`), yaitu maksimal 40 tempat usaha (1 halaman = 20 hasil = 1 request SerpApi).
+   - **Hemat Kuota Otomatis:** Jika halaman 1 hanya mengembalikan < 20 usaha (misal hanya 8 tempat), scraper otomatis berhenti dan tidak memanggil halaman 2 untuk menghemat kuota.
+   - **Mencari Data Lanjutan (Lebih Dalam):** Jika Anda sudah pernah scraping suatu kombinasi dan ingin mengambil tempat usaha di luar 40 data teratas yang sudah Anda dapatkan sebelumnya:
+     1. Tambahkan parameter **`--pages`** dengan jumlah halaman yang lebih banyak (misal `--pages 4` untuk mengambil hingga 80 usaha).
+     2. Tambahkan flag **`--refresh`** agar tidak dilewati oleh sistem deduplikasi 30 hari.
+     ```bash
+     # Contoh: Mengambil hingga halaman 4 (tempat usaha urutan 41-80 akan ditambahkan sebagai usaha baru)
+     python scrape.py --province jatim --city Bangkalan --group persewaan --pages 4 --refresh
+     ```
+   - **Keamanan Data CRM yang Diedit:** Scraping ulang **TIDAK AKAN PERNAH menimpa atau menghapus catatan dan status prospek Anda**. Data publik Google Maps di tabel `businesses` akan diperbarui ke yang terbaru, namun status (*Baru*, *Dihubungi*, *Dibalas*, *Deal*, *Ditolak*) dan seluruh catatan negosiasi di tabel `leads` tetap 100% aman (`ON CONFLICT DO NOTHING`).
+
 ---
 
 ### 5. Deploy ke Vercel & Pengaturan Cron Keepalive
