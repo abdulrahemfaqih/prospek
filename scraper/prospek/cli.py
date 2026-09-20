@@ -1,6 +1,7 @@
 """Command-line interface and interactive runner for Prospek scraper."""
 
 import argparse
+from datetime import datetime
 import sys
 from typing import Any, Dict, List, Optional, Set, Tuple
 
