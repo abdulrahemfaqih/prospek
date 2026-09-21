@@ -2,7 +2,7 @@
  * Type definitions for Prospek database entities and UI models.
  */
 
-export type LeadStatus = 'new' | 'contacted' | 'replied' | 'deal' | 'rejected';
+export type LeadStatus = 'new' | 'contacted' | 'replied' | 'demo' | 'deal' | 'development' | 'revisi' | 'selesai' | 'rejected';
 
 export type WebsiteKind = 'none' | 'social' | 'own';
 

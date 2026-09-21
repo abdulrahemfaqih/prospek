@@ -23,10 +23,30 @@ const STATUS_CONFIG: Record<
     text: '#1D5B79',
     bg: '#E4EEF3',
   },
+  demo: {
+    label: 'Pembuatan Demo',
+    text: '#6B3FA0',
+    bg: '#EDE5F8',
+  },
   deal: {
     label: 'Deal',
     text: '#2F6B4F',
     bg: '#E1EFE7',
+  },
+  development: {
+    label: 'Development',
+    text: '#1A3F6F',
+    bg: '#DAEAF8',
+  },
+  revisi: {
+    label: 'Revisi',
+    text: '#8C5A1A',
+    bg: '#FBF0E0',
+  },
+  selesai: {
+    label: 'Selesai',
+    text: '#1F5C35',
+    bg: '#D4EDDA',
   },
   rejected: {
     label: 'Ditolak',

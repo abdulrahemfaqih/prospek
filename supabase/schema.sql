@@ -34,7 +34,7 @@ create table businesses (
 create table leads (
   business_id      text primary key references businesses(place_id) on delete cascade,
   status           text not null default 'new'
-                   check (status in ('new','contacted','replied','deal','rejected')),
+                   check (status in ('new','contacted','replied','demo','deal','development','revisi','selesai','rejected')),
   notes            text check (notes is null or char_length(notes) <= 20000),  -- markdown mentah
   notes_updated_at timestamptz,
   contacted_at     timestamptz,

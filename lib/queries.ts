@@ -133,7 +133,11 @@ export async function fetchSummaryStats(supabase: SupabaseClient) {
     new: 0,
     contacted: 0,
     replied: 0,
+    demo: 0,
     deal: 0,
+    development: 0,
+    revisi: 0,
+    selesai: 0,
     rejected: 0,
   };
 
