@@ -57,11 +57,11 @@ const STATUS_OPTIONS: { key: LeadStatus; label: string }[] = [
   { key: 'new', label: 'Baru' },
   { key: 'contacted', label: 'Dihubungi' },
   { key: 'replied', label: 'Dibalas' },
-  { key: 'demo', label: '🎨 Pembuatan Demo' },
-  { key: 'deal', label: '🤝 Deal' },
-  { key: 'development', label: '⚙️ Development' },
-  { key: 'revisi', label: '🔁 Revisi' },
-  { key: 'selesai', label: '✅ Selesai' },
+  { key: 'demo', label: 'Pembuatan Demo' },
+  { key: 'deal', label: 'Deal' },
+  { key: 'development', label: 'Development' },
+  { key: 'revisi', label: 'Revisi' },
+  { key: 'selesai', label: 'Selesai' },
   { key: 'rejected', label: 'Ditolak' },
 ];
 

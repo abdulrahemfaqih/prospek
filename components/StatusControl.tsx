@@ -18,11 +18,11 @@ const STATUS_PROSPECT: { key: LeadStatus; label: string }[] = [
 
 // Grup 2: Alur pengerjaan proyek
 const STATUS_PROJECT: { key: LeadStatus; label: string; color: string; activeBg: string }[] = [
-  { key: 'demo',        label: '🎨 Demo',        color: '#6B3FA0', activeBg: '#6B3FA0' },
-  { key: 'deal',        label: '🤝 Deal',         color: '#2F6B4F', activeBg: '#2F6B4F' },
-  { key: 'development', label: '⚙️ Development', color: '#1A3F6F', activeBg: '#1A3F6F' },
-  { key: 'revisi',      label: '🔁 Revisi',      color: '#8C5A1A', activeBg: '#8C5A1A' },
-  { key: 'selesai',     label: '✅ Selesai',     color: '#1F5C35', activeBg: '#1F5C35' },
+  { key: 'demo',        label: 'Pembuatan Demo', color: '#6B3FA0', activeBg: '#6B3FA0' },
+  { key: 'deal',        label: 'Deal',           color: '#2F6B4F', activeBg: '#2F6B4F' },
+  { key: 'development', label: 'Development',    color: '#1A3F6F', activeBg: '#1A3F6F' },
+  { key: 'revisi',      label: 'Revisi',         color: '#8C5A1A', activeBg: '#8C5A1A' },
+  { key: 'selesai',     label: 'Selesai',        color: '#1F5C35', activeBg: '#1F5C35' },
 ];
 
 export function StatusControl({

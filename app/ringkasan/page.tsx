@@ -9,12 +9,19 @@ import { fetchSummaryStats } from '@/lib/queries';
 import { createClient } from '@/lib/supabase/client';
 import { LeadStatus } from '@/lib/types';
 
-const STATUS_ORDER: { key: LeadStatus; label: string }[] = [
+const STATUS_PROSPECT: { key: LeadStatus; label: string }[] = [
   { key: 'new', label: 'Baru' },
   { key: 'contacted', label: 'Dihubungi' },
   { key: 'replied', label: 'Dibalas' },
-  { key: 'deal', label: 'Deal' },
   { key: 'rejected', label: 'Ditolak' },
+];
+
+const STATUS_PROJECT: { key: LeadStatus; label: string }[] = [
+  { key: 'demo', label: 'Pembuatan Demo' },
+  { key: 'deal', label: 'Deal' },
+  { key: 'development', label: 'Development' },
+  { key: 'revisi', label: 'Revisi' },
+  { key: 'selesai', label: 'Selesai' },
 ];
 
 export default function RingkasanPage() {
@@ -80,29 +87,55 @@ export default function RingkasanPage() {
         ) : (
           <>
             {/* 1. Status Leads */}
-            <section className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[6px] p-5 space-y-4">
+            <section className="bg-[var(--color-surface)] border border-[var(--color-line)] rounded-[6px] p-5 space-y-5">
               <h2 className="text-[14px] font-semibold text-[var(--color-ink)] m-0">
                 Status Calon Klien
               </h2>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3">
-                {STATUS_ORDER.map((item, idx) => {
-                  const count = data?.statusCounts[item.key] || 0;
-                  const isLastOdd = idx === STATUS_ORDER.length - 1;
-                  return (
-                    <div
-                      key={item.key}
-                      className={`p-3 bg-[var(--color-paper)] border border-[var(--color-line)] rounded-[6px] flex flex-col justify-between space-y-2 ${
-                        isLastOdd ? 'col-span-2 sm:col-span-1' : ''
-                      }`}
-                    >
-                      <StatusBadge status={item.key} />
-                      <span className="text-[20px] font-semibold text-[var(--color-ink)] tabular-nums">
-                        {count.toLocaleString('id-ID')}
-                      </span>
-                    </div>
-                  );
-                })}
+              {/* Grup Prospek */}
+              <div>
+                <p className="text-[11px] text-[var(--color-ink-faint)] font-medium uppercase tracking-wider mb-2">
+                  Prospek
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {STATUS_PROSPECT.map((item) => {
+                    const count = data?.statusCounts[item.key] || 0;
+                    return (
+                      <div
+                        key={item.key}
+                        className="p-3 bg-[var(--color-paper)] border border-[var(--color-line)] rounded-[6px] flex flex-col justify-between space-y-2"
+                      >
+                        <StatusBadge status={item.key} />
+                        <span className="text-[20px] font-semibold text-[var(--color-ink)] tabular-nums">
+                          {count.toLocaleString('id-ID')}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Grup Pengerjaan Proyek */}
+              <div>
+                <p className="text-[11px] text-[var(--color-ink-faint)] font-medium uppercase tracking-wider mb-2">
+                  Pengerjaan Proyek
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+                  {STATUS_PROJECT.map((item) => {
+                    const count = data?.statusCounts[item.key] || 0;
+                    return (
+                      <div
+                        key={item.key}
+                        className="p-3 bg-[#F7F4FC] border border-[#D8CCEE] rounded-[6px] flex flex-col justify-between space-y-2"
+                      >
+                        <StatusBadge status={item.key} />
+                        <span className="text-[20px] font-semibold text-[var(--color-ink)] tabular-nums">
+                          {count.toLocaleString('id-ID')}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               <div className="text-[13px] text-[var(--color-ink-muted)] pt-1 border-t border-[var(--color-line)] flex justify-between items-center">
